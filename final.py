@@ -13,7 +13,16 @@ print()
 for kk in range(len(menu)):
     print(str(kk+1)+'. '+menu[kk], sector[kk], price[kk], sep='\t\t\t\t\t')
 
-print()    
+print()   
+search = 0
+while search==0:
+    product = (input('Which item do you want to search?,or type 0 for exiting search option\n'))
+
+    if product.capitalize() in menu:
+        print('The item no. of ' + product + ' is ' + str(menu.index(product.capitalize())))
+    else:
+        print('Item not found') 
+        search = 1
 
 shopping_cart = [] 
 shopping_quant= []
@@ -43,13 +52,17 @@ while shopping_complete==0:
         shopping_complete = 1
     else: 
         print("Sorry that was not a valid input.")
-        
+     
+
+
 item =input('enter the name of item you would like to remove from the shopping list.\n')
-shopping_cart.remove(item.capitalize())
+if item.capitalize() in shopping_cart:
+    shopping_cart.remove(item.capitalize())
+else:
+    print('Item not found in your list')    
 
 
         
-
 print()
 print('Your Shopping Cart:')
 
@@ -99,13 +112,13 @@ else:
     print('Proceed to checkout')
 
 grand_tot = 0.0
-print('ITEM', 'QUANT', 'UNIT PRICE', 'TOTAL',sep='\t\t\t')    
+print('ITEM', 'QUANT', 'UNIT PRICE', 'TOTAL',sep='\t\t\t\t')    
 for kk in range(len(shopping_cart)):
     idx = menu.index(shopping_cart[kk])
     unit_price=price[idx]
     tot_price = round(unit_price*shopping_quant[kk], 2)
     grand_tot += tot_price
-    print(shopping_cart[kk], shopping_quant[kk], unit_price, tot_price,sep='\t\t\t')
+    print(shopping_cart[kk], shopping_quant[kk], unit_price, tot_price,sep='\t\t\t\t')
 
 print()
 
@@ -130,3 +143,5 @@ print('Total you have to pay (INR) ', round(grand_tot - discount + tax, 2))
 
 print('Thanks')
 print('Bye')
+
+# I am unable to create admin login at the moment ,so i did this 'discount wanted' and 'tax rate' thing that i learned previously.

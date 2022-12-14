@@ -1,7 +1,7 @@
 display = input('Press enter to continue.')
-name = input('enter your name \n')
-student_id = input('enter your student id \n')
-room_no = input('enter your room no \n')
+name = input('Enter your name \n')
+student_id = input('Enter your student id \n')
+room_no = input('Enter your room no \n')
 print('------------------Welcome to the Akshay Supermarket------------------')
 print()
 
@@ -44,7 +44,7 @@ while shopping_complete==0:
     else: 
         print("Sorry that was not a valid input.")
         
-item =input('enter the item you would like to remove from the shopping list')
+item =input('enter the name of item you would like to remove from the shopping list.\n')
 shopping_cart.remove(item.capitalize())
 
 
@@ -130,4 +130,3 @@ print('Total you have to pay (INR) ', round(grand_tot - discount + tax, 2))
 
 print('Thanks')
 print('Bye')
-
